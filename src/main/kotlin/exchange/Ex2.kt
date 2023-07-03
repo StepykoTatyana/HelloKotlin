@@ -62,29 +62,46 @@ fun main(args: Array<String>) {
 //                funcForLine()
 //        }
 //    }
-
+    val list = listOf<String>("-sortingType", "-dataType", "long", "word", "line", "natural", "byCount")
+    for (i in args.indices) {
+        if (args[i] !in list) {
+            println("${args[i]} is not a valid parameter. It will be skipped.")
+        }
+    }
     if (args.contains("-sortingType")) {
         if (args.contains("natural")) {
             if (args.contains("long")) {
                 sortInt()
             } else if (args.contains("word")) {
                 sortWord()
-            } else {
+            } else if (args.contains("line")) {
                 sortLine()
+            } else {
+                println("No data type defined!")
             }
-        } else {
+        } else if (args.contains("byCount")) {
             if (args.contains("long")) {
                 sortedByCountInt()
             } else if (args.contains("word")) {
                 sortedByCountWord()
-            } else {
+            } else if (args.contains("line")) {
                 sortedByCountLine()
+            } else {
+                println("No data type defined!")
             }
-
-
+        } else {
+            println("No sorting type defined!")
         }
     } else {
-        sortInt()
+        if (args.contains("long")) {
+            sortInt()
+        } else if (args.contains("line")) {
+            sortLine()
+        } else if (args.contains("word")) {
+            sortWord()
+        } else {
+            println("No data type defined!")
+        }
     }
 
 
@@ -136,8 +153,16 @@ fun sortInt() {
     val list = mutableListOf<Int>()
     while (scanner.hasNext()) {
         val next = scanner.nextLine().replace(r, " ")
-            .split(" ").stream().map(String::toInt).toList()
-        list += next
+            .split(" ").stream().toList()
+        val mutableList = mutableListOf<Int>()
+        for (i in next) {
+            try {
+                mutableList.add(i.toInt())
+            } catch (e: Exception) {
+                println("$i is not a long. It will be skipped.")
+            }
+        }
+        list += mutableList
     }
     list.sortBy { it }
     println("Total numbers: ${list.size}.")
@@ -174,20 +199,25 @@ fun sortedByCountInt() {
     val map = mutableMapOf<Int, Int>()
     val list = mutableListOf<Int>()
     while (scanner.hasNext()) {
-        val next = scanner.nextLine().trim().replace(r, " ")
-            .split(" ").stream().map(String::toInt).toList()
-        list += next
+        val next = scanner.nextLine().replace(r, " ")
+            .split(" ").stream().toList()
+        val mutableList = mutableListOf<Int>()
+        for (i in next) {
+            try {
+                mutableList.add(i.toInt())
+            } catch (e: Exception) {
+                println("$i is not a long. It will be skipped.")
+            }
+        }
+        list += mutableList
     }
-//    println(list)
     for (i in list) {
         map[i] = list.count { x -> x == i }
     }
 
-//    list.groupingBy { it }.eachCount().toList()
     println("Total numbers: ${list.size}.")
     val m = map.entries.sortedBy { (k, v) -> v }.toMutableList()
     val countMaxInList = list.size.toDouble()
-    //m.forEach { print("${it.key}: ${it.value} time(s), ${(it.value.toDouble() / countMaxInList * 100).toInt()}%") }
     var k = list.groupingBy { it }.eachCount()
     k = k.toList().sortedBy { it.first }.sortedBy { it.second }.toMap()
 
