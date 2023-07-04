@@ -1,13 +1,16 @@
 package exchange
 
+import java.io.File
 import java.lang.Exception
 import java.util.*
-import kotlin.math.absoluteValue
-
-var counter = 3;
 
 val scanner = Scanner(System.`in`)
 val r = Regex("\\s+")
+var linesFile = mutableListOf<String>()
+val separator: String = File.separator
+var flagLog = false
+var myFile: File? = null
+
 
 fun main(args: Array<String>) {
 
@@ -62,11 +65,37 @@ fun main(args: Array<String>) {
 //                funcForLine()
 //        }
 //    }
-    val list = listOf<String>("-sortingType", "-dataType", "long", "word", "line", "natural", "byCount")
+    val list = listOf(
+        "-sortingType",
+        "-dataType", "long", "word", "line", "natural", "byCount",
+        "-inputFile", "-outputFile"
+    )
+    var inputFile: String
+    var outputFile: String
+    if (args.contains("-outputFile")){
+        flagLog = true
+    }
     for (i in args.indices) {
-        if (args[i] !in list) {
-            println("${args[i]} is not a valid parameter. It will be skipped.")
+
+        if (args[i] == "-outputFile") {
+            outputFile = args[i + 1]
+            myFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${separator}$outputFile")
+
         }
+        if (args[i] !in list && !args[i].matches(Regex(".+[.].+"))) {
+            println("${args[i]} is not a valid parameter. It will be skipped.")
+            println(flagLog)
+            if (flagLog) {
+                myFile?.appendText("${args[i]} is not a valid parameter. It will be skipped.\n")
+            }
+        }
+        if (args[i] == "-inputFile") {
+            inputFile = args[i + 1]
+            linesFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${separator}$inputFile").readLines() as MutableList<String>
+            println(linesFile)
+
+        }
+
     }
     if (args.contains("-sortingType")) {
         if (args.contains("natural")) {
@@ -78,6 +107,9 @@ fun main(args: Array<String>) {
                 sortLine()
             } else {
                 println("No data type defined!")
+                if (flagLog) {
+                    myFile?.appendText("No data type defined!\n")
+                }
             }
         } else if (args.contains("byCount")) {
             if (args.contains("long")) {
@@ -88,9 +120,15 @@ fun main(args: Array<String>) {
                 sortedByCountLine()
             } else {
                 println("No data type defined!")
+                if (flagLog) {
+                    myFile?.appendText("No data type defined!\n")
+                }
             }
         } else {
             println("No sorting type defined!")
+            if (flagLog) {
+                myFile?.appendText("No sorting type defined!\n")
+            }
         }
     } else {
         if (args.contains("long")) {
@@ -101,6 +139,9 @@ fun main(args: Array<String>) {
             sortWord()
         } else {
             println("No data type defined!")
+            if (flagLog) {
+                myFile?.appendText("No data type defined!\n")
+            }
         }
     }
 
@@ -150,32 +191,59 @@ fun funcForLine() {
 }
 
 fun sortInt() {
-    val list = mutableListOf<Int>()
-    while (scanner.hasNext()) {
-        val next = scanner.nextLine().replace(r, " ")
-            .split(" ").stream().toList()
-        val mutableList = mutableListOf<Int>()
-        for (i in next) {
-            try {
-                mutableList.add(i.toInt())
-            } catch (e: Exception) {
-                println("$i is not a long. It will be skipped.")
-            }
+    var list = mutableListOf<Int>()
+    if (linesFile.size == 0) {
+        while (scanner.hasNext()) {
+            list = funForInt(scanner.nextLine(), list)
         }
-        list += mutableList
+    } else {
+        for (l in linesFile) {
+            list = funForInt(l, list)
+
+        }
     }
     list.sortBy { it }
     println("Total numbers: ${list.size}.")
     print("Sorted data: ")
     list.stream().forEach { print("$it ") }
+}
+
+fun funForInt(l: String, list: MutableList<Int>): MutableList<Int> {
+    val next = l.replace(r, " ")
+        .split(" ").stream().toList()
+    val mutableList = mutableListOf<Int>()
+    for (i in next) {
+        try {
+            mutableList.add(i.toInt())
+        } catch (e: Exception) {
+            println("$i is not a long. It will be skipped.")
+            if (flagLog) {
+                myFile?.appendText("$i is not a long. It will be skipped.\n")
+            }
+        }
+    }
+    list += mutableList
+    return list
+}
+
+fun funForWord(l: String, list: MutableList<String>): MutableList<String> {
+    val next = l.trim().replace(r, " ")
+        .split(" ").stream().toList()
+    list += next
+    return list
 }
 
 fun sortWord() {
-    val list = mutableListOf<String>()
-    while (scanner.hasNext()) {
-        val next = scanner.nextLine().replace(r, " ")
-            .split(" ").stream().toList()
-        list += next
+    var list = mutableListOf<String>()
+    if (linesFile.size == 0) {
+        while (scanner.hasNext()) {
+            list = funForWord(scanner.nextLine(), list)
+        }
+    } else {
+        for (l in linesFile) {
+            list = funForWord(l, list)
+
+        }
     }
     list.sortBy { it }
     println("Total numbers: ${list.size}.")
@@ -183,11 +251,18 @@ fun sortWord() {
     list.stream().forEach { print("$it ") }
 }
 
+
 fun sortLine() {
     val list = mutableListOf<String>()
-    while (scanner.hasNext()) {
-        val next = scanner.nextLine()
-        list.add(next)
+    if (linesFile.size == 0) {
+        while (scanner.hasNext()) {
+            list.add(scanner.nextLine())
+        }
+    } else {
+        for (l in linesFile) {
+            list.add(l)
+
+        }
     }
     list.sortBy { it }
     println("Total numbers: ${list.size}.")
@@ -197,26 +272,24 @@ fun sortLine() {
 
 fun sortedByCountInt() {
     val map = mutableMapOf<Int, Int>()
-    val list = mutableListOf<Int>()
-    while (scanner.hasNext()) {
-        val next = scanner.nextLine().replace(r, " ")
-            .split(" ").stream().toList()
-        val mutableList = mutableListOf<Int>()
-        for (i in next) {
-            try {
-                mutableList.add(i.toInt())
-            } catch (e: Exception) {
-                println("$i is not a long. It will be skipped.")
-            }
+    var list = mutableListOf<Int>()
+
+    if (linesFile.size == 0) {
+        while (scanner.hasNext()) {
+            list = funForInt(scanner.nextLine(), list)
         }
-        list += mutableList
+    } else {
+        for (l in linesFile) {
+            list = funForInt(l, list)
+
+        }
     }
     for (i in list) {
         map[i] = list.count { x -> x == i }
     }
 
     println("Total numbers: ${list.size}.")
-    val m = map.entries.sortedBy { (k, v) -> v }.toMutableList()
+    map.entries.sortedBy { (k, v) -> v }.toMutableList()
     val countMaxInList = list.size.toDouble()
     var k = list.groupingBy { it }.eachCount()
     k = k.toList().sortedBy { it.first }.sortedBy { it.second }.toMap()
@@ -232,31 +305,26 @@ fun sortedByCountInt() {
 
 fun sortedByCountWord() {
     val map = mutableMapOf<String, Int>()
-    val list = mutableListOf<String>()
-    while (scanner.hasNext()) {
-        val next = scanner.nextLine().trim().replace(r, " ")
-            .split(" ").stream().toList()
-        list += next
+    var list = mutableListOf<String>()
+    if (linesFile.size == 0) {
+        while (scanner.hasNext()) {
+            list = funForWord(scanner.nextLine(), list)
+        }
+    } else {
+        for (l in linesFile) {
+            list = funForWord(l, list)
+
+        }
     }
-    println(list)
-    println(":::::::::::")
     list.sort()
     var k = list.groupingBy { it }.eachCount()
-    println(k)
     k = k.toList().sortedBy { it.second }.also { it.first() }.toMap()
-    println(k.entries)
     for (i in list) {
         map[i] = list.count { x -> x == i }
     }
-
-//    list.groupingBy { it }.eachCount().toList()
     println("Total numbers: ${list.size}.")
     println("Sorted data: ")
-//    map.entries.sortedBy { (k, v) -> v }.toMutableList()
-//    println(map)
-    val m = map.toList().sortedBy { it.second }.toMap()
     val countMaxInList = list.size.toDouble()
-    //m.forEach { print("${it.key}: ${it.value} time(s), ${(it.value.toDouble() / countMaxInList * 100).toInt()}%") }
     for (n in k) {
         println("${n.key}: ${n.value} time(s), ${(n.value.toDouble() / countMaxInList * 100).toInt()}%")
     }
@@ -265,9 +333,15 @@ fun sortedByCountWord() {
 fun sortedByCountLine() {
     val map = mutableMapOf<String, Int>()
     val list = mutableListOf<String>()
-    while (scanner.hasNext()) {
-        val next = scanner.nextLine().trim()
-        list.add(next)
+    if (linesFile.size == 0) {
+        while (scanner.hasNext()) {
+            list.add(scanner.nextLine().trim())
+        }
+    } else {
+        for (l in linesFile) {
+            list.add(l.trim())
+
+        }
     }
 
     var k = list.groupingBy { it }.eachCount()
@@ -275,11 +349,10 @@ fun sortedByCountLine() {
     for (i in list) {
         map[i] = list.count { x -> x == i }
     }
-
     println("Total numbers: ${list.size}.")
-    val m = map.toList().sortedBy { it.second }.toMap()
     val countMaxInList = list.size.toDouble()
     for (n in k) {
         println("${n.key}: ${n.value} time(s), ${(n.value.toDouble() / countMaxInList * 100).toInt()}%")
     }
 }
+
