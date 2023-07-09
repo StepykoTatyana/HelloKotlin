@@ -2,3 +2,119 @@
 -ghd is not a valid parameter. It will be skipped.
 -d is not a valid parameter. It will be skipped.
 f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.
+-abs is not a valid parameter. It will be skipped.
+-ghd is not a valid parameter. It will be skipped.
+-d is not a valid parameter. It will be skipped.
+f is not a long. It will be skipped.

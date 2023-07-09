@@ -3,6 +3,7 @@ package exchange
 import java.io.File
 import java.lang.Exception
 import java.util.*
+import kotlin.math.pow
 
 val scanner = Scanner(System.`in`)
 val r = Regex("\\s+")
@@ -13,6 +14,27 @@ var myFile: File? = null
 
 
 fun main(args: Array<String>) {
+
+    fun f(n: Int): Int = if (n > 2) f(n - 1) + f(n - 2) + f(n - 3) else n
+    println(f(6))
+    fun sumRecursive(n: Int): Int {
+        var sum = 0
+        if (n.toString().length == 1) {
+            sum += n
+        } else {
+            val m = 10.0.pow(n.toString().length.toDouble() - 1).toInt()
+            sum = n / m + sumRecursive(n % m)
+
+
+        }
+        return sum
+    }
+
+    val n = 54321
+    println(n % 10)
+    println(54321 / (10.0.pow(54321.toString().length.toDouble() - 1)).toInt())
+    println("KKKK")
+    println(sumRecursive(n))
 
 
 //    fun calculateBrakingDistance(v1: String, a: String): Int {
@@ -72,14 +94,14 @@ fun main(args: Array<String>) {
     )
     var inputFile: String
     var outputFile: String
-    if (args.contains("-outputFile")){
+    if (args.contains("-outputFile")) {
         flagLog = true
     }
     for (i in args.indices) {
 
         if (args[i] == "-outputFile") {
             outputFile = args[i + 1]
-            myFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${separator}$outputFile")
+            myFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${flashCards.separator}$outputFile")
 
         }
         if (args[i] !in list && !args[i].matches(Regex(".+[.].+"))) {
@@ -91,7 +113,8 @@ fun main(args: Array<String>) {
         }
         if (args[i] == "-inputFile") {
             inputFile = args[i + 1]
-            linesFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${separator}$inputFile").readLines() as MutableList<String>
+            linesFile =
+                File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${flashCards.separator}$inputFile").readLines() as MutableList<String>
             println(linesFile)
 
         }
