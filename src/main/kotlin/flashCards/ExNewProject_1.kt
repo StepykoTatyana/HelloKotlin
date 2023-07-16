@@ -12,6 +12,7 @@ val logList = mutableListOf<String>()
 
 fun main() {
 
+
 //    println("Input the number of cards:")
 //    val countCards = readln().toInt()
 //    for (i in 1..countCards) {

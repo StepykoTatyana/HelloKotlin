@@ -1,0 +1,43 @@
+hardest cardThere are no cards with errors.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+importFile name:
+nn.txt2 cards have been loaded.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+hardest cardThe hardest cards are "df", "e". You have 5 errors answering it.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+askHow many times to ask?
+1Print the definition of "e":
+hkhjWrong. The right answer is "vxcv".
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+hardest cardThe hardest card is "e". You have 6 errors answering it.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+askHow many times to ask?
+1Print the definition of "e":
+dfffWrong. The right answer is "vxcv", but your definition is correct for "df".
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+hardest cardThe hardest card is "e". You have 7 errors answering it.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+reset statsCard statistics have been reset.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+loglog.txthardest cardThere are no cards with errors.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+importFile name:
+nn.txt2 cards have been loaded.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+hardest cardThe hardest cards are "df", "e". You have 5 errors answering it.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+askHow many times to ask?
+1Print the definition of "df":
+dfdWrong. The right answer is "dfff".
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+askHow many times to ask?
+1Print the definition of "e":
+dfffWrong. The right answer is "vxcv", but your definition is correct for "df".
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+hardest cardThe hardest cards are "df", "e". You have 6 errors answering it.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+reset statsCard statistics have been reset.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+hardest cardThere are no cards with errors.
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+loglog.txt
