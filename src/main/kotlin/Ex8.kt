@@ -1,10 +1,11 @@
-
+package watermark
 import java.awt.Color
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
 
+var userAlphaChannel: String = "no"
 val separator: String = File.separator
 val workingDirectory: String = System.getProperty("user.dir")
 var transparency: String? = null
@@ -54,13 +55,20 @@ fun checkImageExtension(image: BufferedImage, imageWatermark: BufferedImage) {
             for (y in 0 until image.height) {
 
                 val i = Color(image.getRGB(x, y))
-                val w = Color(imageWatermark.getRGB(x, y))
+                val w: Color = if (userAlphaChannel =="yes"){
+                    Color(imageWatermark.getRGB(x, y), true)
+                } else {
+                    Color(imageWatermark.getRGB(x, y))
+                }
 
-                val color = Color(
-                    (percentage * w.red + (100 - percentage) * i.red) / 100,
-                    (percentage * w.green + (100 - percentage) * i.green) / 100,
-                    (percentage * w.blue + (100 - percentage) * i.blue) / 100
+
+                val color = if (w.alpha == 0) Color(i.red, i.green, i.blue)
+                else Color(
+                    ((100 - percentage) * i.red + percentage * w.red) / 100,
+                    ((100 - percentage) * i.green + percentage * w.green) / 100,
+                    ((100 - percentage) * i.blue + percentage * w.blue) / 100
                 )
+
                 imageOutputBuff.setRGB(x, y, color.rgb)
             }
         }
@@ -99,10 +107,12 @@ fun checkFile(file: String): BufferedImage? {
 
 fun checkImage(image: BufferedImage): BufferedImage? {
     if (image.colorModel.numColorComponents == 3) {
-        transparency = if (image.transparency == 1) {
-            "OPAQUE"
+        if (image.transparency == 1) {
+            transparency = "OPAQUE"
         } else {
-            "TRANSLUCENT"
+            transparency = "TRANSLUCENT"
+            println("Do you want to use the watermark's Alpha channel?")
+            userAlphaChannel = readln()
         }
         if (image.colorModel.pixelSize in listOf(24, 32)) {
             return image
