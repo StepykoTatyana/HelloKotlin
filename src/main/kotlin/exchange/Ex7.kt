@@ -7,7 +7,7 @@ import javax.imageio.ImageIO
 
 fun main() {
     // Create a new BufferedImage instance with image size 256 X 256
-    // The first parameter is the image width, while the second is the image height
+    // The first parameter is the image waterMark.getWidth, while the second is the image waterMark.getHeight
     // The third parameter should be BufferedImage.TYPE_INT_ARGB for a 32-bit image
     // or BufferedImage.TYPE_INT_RGB for a 24-bit image
     val myImage: BufferedImage = BufferedImage(364, 256, BufferedImage.TYPE_INT_ARGB)
@@ -27,7 +27,7 @@ fun main() {
 
 
     val outputFile =
-        File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange\\alpha.png")         // Output the image
+        File("C:\\IdeaProjects\\HelloKotlin\\src\\waterMark.main\\kotlin\\exchange\\alpha.png")         // Output the image
     ImageIO.write(myImage, "png", outputFile)  // Create an image using the BufferedImage
 
 
@@ -64,7 +64,7 @@ fun main() {
         intArrayOf(50, 100, 200, 250, 200, 100),
         intArrayOf(150, 250, 250, 150, 50, 50), 6
     )
-    val imageFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange\\myFirstImage.png")
+    val imageFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\waterMark.main\\kotlin\\exchange\\myFirstImage.png")
 
     saveImage(image, imageFile)
 

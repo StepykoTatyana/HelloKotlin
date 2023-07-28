@@ -101,7 +101,7 @@ fun main(args: Array<String>) {
 
         if (args[i] == "-outputFile") {
             outputFile = args[i + 1]
-            myFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${flashCards.separator}$outputFile")
+            myFile = File("C:\\IdeaProjects\\HelloKotlin\\src\\waterMark.main\\kotlin\\exchange${flashCards.separator}$outputFile")
 
         }
         if (args[i] !in list && !args[i].matches(Regex(".+[.].+"))) {
@@ -114,7 +114,7 @@ fun main(args: Array<String>) {
         if (args[i] == "-inputFile") {
             inputFile = args[i + 1]
             linesFile =
-                File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange${flashCards.separator}$inputFile").readLines() as MutableList<String>
+                File("C:\\IdeaProjects\\HelloKotlin\\src\\waterMark.main\\kotlin\\exchange${flashCards.separator}$inputFile").readLines() as MutableList<String>
             println(linesFile)
 
         }

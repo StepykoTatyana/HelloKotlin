@@ -119,7 +119,7 @@ fun logApp() {
     val fileName = readln()
     logList.add("File name:\n")
     logList.add(fileName + "\n")
-    //val f = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange\\${fileName}")
+    //val f = File("C:\\IdeaProjects\\HelloKotlin\\src\\waterMark.main\\kotlin\\exchange\\${fileName}")
     val f = File("$workingDirectory$separator${fileName}")
     for (i in 0 until logList.size) {
         f.appendText(logList[i])
@@ -182,7 +182,7 @@ fun importData() {
         logList.add(f.toString() + "\n")
         val countCardsInBefore = mapOfCards.size
         val cardsFile = File("$workingDirectory$separator$f").readLines() as MutableList<String>
-        //val cardsFile =             File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange\\$f").readLines() as MutableList<String>
+        //val cardsFile =             File("C:\\IdeaProjects\\HelloKotlin\\src\\waterMark.main\\kotlin\\exchange\\$f").readLines() as MutableList<String>
         if (cardsFile.size != 0) {
             for (l in 0 until cardsFile.size - 1 step 3) {
                 mapOfCards[cardsFile[l]] = cardsFile[l + 1]
@@ -216,9 +216,9 @@ fun export() {
     logList.add(fileName + "\n")
 
     //val f = readln()
-    //val f = File("C:\\IdeaProjects\\HelloKotlin\\src\\main\\kotlin\\exchange\\${fileName}")
+    //val f = File("C:\\IdeaProjects\\HelloKotlin\\src\\waterMark.main\\kotlin\\exchange\\${fileName}")
     val f = File("$workingDirectory$separator${fileName}")
-    //val cardsFile = File("${workingDirectory}${separator}$f").readLines() as MutableList<String>
+    //val cardsFile = File("${waterMark.getWorkingDirectory}${waterMark.getSeparator}$f").readLines() as MutableList<String>
 
     for (n in mapOfCards.entries) {
         f.appendText(n.key + "\n")
